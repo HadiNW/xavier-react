@@ -48,7 +48,7 @@ class Home extends Component {
           return <li>{each}</li>
         })}       
         </ul>
-        {JSON.stringify(this.state.heroes)}
+        {/* {JSON.stringify(this.state.heroes)} */}
         <input style={inputStyle} placeholder="new todo" value={newTodo} onChange={(e) => this.handleChange(e)}></input><br/>
         <Button add={this.addNewTodo}/>
       </div>

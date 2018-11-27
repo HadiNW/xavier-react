@@ -2,14 +2,13 @@
   text-align: center;
 }
 
-.input {
-  border-radius: 10;
-  height: 40;
-  width: 200;
-}
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 10vmin;
+}
+
+Link {
+  color: white;
 }
 
 .App-header {
