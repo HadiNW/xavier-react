@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Button from '../components/Button'
+import {connect} from 'react-redux'
+import {login, logout, toggle} from '../actions/loginActions'
 
 class Home extends Component {
   constructor () {
@@ -50,10 +52,30 @@ class Home extends Component {
         </ul>
         {/* {JSON.stringify(this.state.heroes)} */}
         <input style={inputStyle} placeholder="new todo" value={newTodo} onChange={(e) => this.handleChange(e)}></input><br/>
-        <Button add={this.addNewTodo}/>
+        <Button fn={this.addNewTodo} title={'add new todo'}/>
+        {/* <Button fn={this.props.toggle} title={'toggle login'}/>*/}
+        <button onClick={() => this.props.toggle(this.props.isLogin)}>toggle login</button>
+        {!this.props.isLogin?
+        <Button fn={this.props.login} title={'login'} /> :
+        <Button fn={this.props.logout} title={'logout'} />}
+        <h2>{this.props.isLogin ? 'kamu sudah login' : 'kamu belom login'}</h2>
       </div>
     );
   }
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {
+    isLogin: state.login.isLogin
+  }
+}
+
+const tributeToPakRyan = (dispatch) => {
+  return {
+    login: () => dispatch(login()),
+    logout: () => dispatch(logout()),
+    toggle: (prev) => dispatch(toggle(prev)) 
+  }
+}
+
+export default connect(mapStateToProps, tributeToPakRyan)(Home);

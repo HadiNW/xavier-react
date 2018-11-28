@@ -6,9 +6,11 @@
   animation: App-logo-spin infinite 20s linear;
   height: 10vmin;
 }
-
-Link {
+.link {
   color: white;
+}
+.link:hover {
+  color: grey;
 }
 
 .App-header {

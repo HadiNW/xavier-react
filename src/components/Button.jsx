@@ -10,7 +10,7 @@ const Button = (props) => {
   }
   return (
     <div>
-       <button style={buttonStyle} onClick={() => props.add()}>add new todo</button>
+       <button style={buttonStyle} onClick={() => props.fn()}>{props.title}</button>
     </div>
   );
 }
